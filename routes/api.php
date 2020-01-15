@@ -17,8 +17,14 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+Route::post('login', 'API\PassportController@login');
+Route::post('register', 'API\PassportController@register');
 
-Route::middleware('api')->group(function () {
+
+Route::middleware('auth:api')->group(function () {
+
+    Route::get('user', 'API\PassportController@user');
+    Route::get('logout', 'API\PassportController@logout');
 
     Route::resource('courses', 'API\CourseController')->except([
         'create', 'edit'

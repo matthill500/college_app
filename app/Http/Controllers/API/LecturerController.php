@@ -57,7 +57,7 @@ class LecturerController extends Controller
 
     public function show($id)
     {
-        $lecturer = Lecturer::findOrFail($id);
+        $lecturer = Lecturer::find($id);
 
         if ($lecturer === null) {
           $statusMsg = 'Lecturer not found!';
@@ -122,7 +122,7 @@ class LecturerController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $lecturer = Lecturer::findOrFail($id);
+        $lecturer = Lecturer::find($id);
 
 
         if ($lecturer === null) {

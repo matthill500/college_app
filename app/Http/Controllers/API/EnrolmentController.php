@@ -67,7 +67,7 @@ class EnrolmentController extends Controller
 
     public function show($id)
     {
-        $enrolment = Enrolment::findOrFail($id);
+        $enrolment = Enrolment::find($id);
 
         if ($enrolment === null) {
           $statusMsg = 'Enrolment not found!';
@@ -89,7 +89,7 @@ class EnrolmentController extends Controller
 
     public function update(Request $request, $id)
     {
-        $enrolment = Enrolment::findOrFail($id);
+        $enrolment = Enrolment::find($id);
 
         if ($enrolment === null) {
           return response()->json(
@@ -144,7 +144,7 @@ class EnrolmentController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $enrolment = Enrolment::findOrFail($id);
+        $enrolment = Enrolment::find($id);
 
         if ($enrolment === null) {
           $statusMsg = 'Enrolment not found!';

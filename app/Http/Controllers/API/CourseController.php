@@ -61,7 +61,7 @@ class CourseController extends Controller
 
     public function show($id)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::find($id);
 
         if ($course === null) {
           $statusMsg = 'Course not found!';
@@ -83,7 +83,7 @@ class CourseController extends Controller
 
     public function update(Request $request, $id)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::find($id);
 
         if ($course === null) {
           return response()->json(
@@ -129,7 +129,7 @@ class CourseController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::find($id);
 
         if ($course === null) {
           $statusMsg = 'Course not found!';
