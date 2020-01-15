@@ -13,6 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::middleware('api')->group(function () {
+
+    Route::resource('courses', 'API\CourseController')->except([
+        'create', 'edit'
+    ]);
+    Route::resource('lecturers', 'API\LecturerController')->except([
+        'create', 'edit'
+    ]);
+    Route::resource('enrolments', 'API\EnrolmentController')->except([
+        'create', 'edit'
+    ]);
 });
